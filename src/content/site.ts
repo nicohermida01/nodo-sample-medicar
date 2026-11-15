@@ -229,7 +229,7 @@ export const site: SiteContent = {
     ],
     memberships: ['Miembro de una sociedad dermatológica nacional'],
     bio: [
-      'Hace más de 12 años que acompaño a mis pacientes en el cuidado de su piel, con consultas sin apuro y explicaciones claras.',
+      'Hace más de 12 años que acompaño a pacientes de todas las edades en el cuidado de su piel, desde un lunar que preocupa hasta un tratamiento que lleva meses.',
       'Creo en una dermatología basada en evidencia y cercana: escuchar primero, revisar con atención y armar juntos un plan que se pueda sostener en el día a día.',
     ],
   },
@@ -317,9 +317,9 @@ export const site: SiteContent = {
       photoAlt: 'La Dra. Julieta Ferrari en su escritorio de consulta (imagen de ejemplo)',
       quote: 'Prefiero que salgas de la consulta entendiendo qué tenés y qué hacer.',
       facts: [
-        'Médica egresada de la Universidad Nacional de Rosario',
-        'Especialista en Dermatología',
-        'Miembro de una sociedad dermatológica nacional',
+        'Consultas para adultos, chicos y adolescentes',
+        'Dermatoscopía en el mismo consultorio',
+        'Tiempo en cada turno para que preguntes lo que necesites',
       ],
     },
     insurances: { particularLabel: 'Particulares' },
