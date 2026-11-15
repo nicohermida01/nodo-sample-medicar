@@ -29,7 +29,7 @@ Figtree body at 18px. Photos in 28px frames with small white floating cards; 1px
 STORY: Who she is (name, specialty, MP) -> she is qualified and near (credentials, office) -> what she treats ->
 how the first visit goes -> my insurance works -> book now via booking link or WhatsApp.
 
-FIRST VIEWPORT: Desktop: left 7/12 serif headline (2 lines, second muted), lead with name + MP,
+FIRST VIEWPORT: Desktop: left 7/12 serif headline at display-xl (~72px, 3 even lines "Cuidamos tu piel / con tiempo, ciencia / y cercanía.", last two muted), lead with name + MP,
 dark "Pedir turno" pill + light WhatsApp pill, a small row "OSDE, Swiss Medical, Galeno +3 · Bv. Oroño, Rosario".
 Right 45%: portrait 4:5 in 28px frame; floating card bottom-left with live open/closed status and today's hours;
 small card top-right "Dra. Julieta Ferrari · MP 00000". Mobile: portrait first, cropped 5:4 with status card, then
