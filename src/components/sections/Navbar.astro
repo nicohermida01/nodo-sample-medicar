@@ -1,0 +1,113 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from '../ui/Button.astro';
+import { site, links, licenseLabel } from '../../content/site';
+
+const navItems = Object.values(site.sections)
+  .filter((s) => s.navLabel)
+  .map((s) => ({ href: `#${s.anchor}`, label: s.navLabel as string }));
+---
+
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-40 border-b border-transparent bg-surface/90 backdrop-blur-sm transition-[border-color,background-color] duration-300 data-[scrolled=true]:border-border data-[scrolled=true]:bg-surface/95"
+>
+  <a
+    href="#contenido"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-full focus:bg-accent focus:px-5 focus:py-3 focus:text-on-accent"
+  >
+    {site.ui.skipLink}
+  </a>
+
+  <div class="mx-auto flex h-18 w-full max-w-page items-center justify-between gap-6 px-5 sm:px-8">
+    <a href="#top" class="flex min-h-11 flex-col justify-center leading-tight" aria-label={`${site.professional.name}, ${site.ui.homeLabel}`}>
+      <span class="font-serif text-[1.3125rem] text-ink">{site.professional.name}</span>
+      <span class="text-[0.8125rem] text-ink-muted"><span class="hidden sm:inline">{site.professional.title} · </span>{licenseLabel}</span>
+    </a>
+
+    <nav aria-label={site.ui.navLabel} class="hidden lg:block">
+      <ul class="flex items-center gap-1">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="inline-flex min-h-11 items-center px-3 text-[0.9375rem] text-ink-muted transition-colors duration-300 hover:text-ink"
+              >
+                <span class="link-underline">{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <div class="hidden sm:block">
+        <Button href={links.booking} external arrow>{site.cta.primaryLabel}</Button>
+      </div>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="inline-flex size-11 items-center justify-center rounded-full border border-border-strong text-ink transition-colors hover:bg-tint-sage lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-label-open={site.ui.menuOpen}
+        data-label-close={site.ui.menuClose}
+      >
+        <span class="sr-only" data-menu-label>{site.ui.menuOpen}</span>
+        <Icon name="lucide:menu" class="size-5 [[aria-expanded=true]>&]:hidden" aria-hidden="true" stroke-width="1.5" />
+        <Icon name="lucide:x" class="hidden size-5 [[aria-expanded=true]>&]:block" aria-hidden="true" stroke-width="1.5" />
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-border bg-surface lg:hidden" data-open="false">
+    <nav aria-label={site.ui.navLabel} class="mx-auto max-w-page px-5 pb-6 pt-2 sm:px-8">
+      <ul class="divide-y divide-border">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} class="flex min-h-13 items-center font-serif text-display-sm text-ink" data-menu-link>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-5 grid gap-3">
+        <Button href={links.booking} external arrow size="lg">{site.cta.primaryLabel}</Button>
+        <Button href={links.whatsapp} external variant="secondary" icon="message-circle" size="lg">
+          {site.cta.whatsappLabel}
+        </Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const label = toggle?.querySelector<HTMLElement>('[data-menu-label]');
+
+  const setOpen = (open: boolean) => {
+    if (!toggle || !menu) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('hidden', !open);
+    if (label) label.textContent = (open ? toggle.dataset.labelClose : toggle.dataset.labelOpen) ?? '';
+  };
+
+  toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu?.querySelectorAll('[data-menu-link]').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  const onScroll = () => header?.setAttribute('data-scrolled', String(window.scrollY > 8));
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

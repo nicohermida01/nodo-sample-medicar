@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { site } from '../../content/site';
+
+const { faq, sections } = site;
+const s = sections.faq;
+---
+
+<Section id={s.anchor} tone="alt" labelledby="faq-title">
+  <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+    <div class="lg:col-span-4">
+      <SectionHeading id="faq-title" title={s.title} />
+    </div>
+    <div class="reveal divide-y divide-border-strong border-y border-border-strong lg:col-span-8">
+      {
+        faq.map((item) => (
+          <details class="group">
+            <summary class="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left font-serif text-[1.375rem] leading-snug text-ink transition-colors hover:text-brand [&::-webkit-details-marker]:hidden">
+              <span>{item.question}</span>
+              <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border-strong text-brand transition-transform duration-300 ease-out-soft group-open:rotate-45" aria-hidden="true">
+                <Icon name="lucide:plus" class="size-4.5" stroke-width="1.5" />
+              </span>
+            </summary>
+            <p class="max-w-[60ch] pb-6 pr-12 text-ink-muted">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</Section>

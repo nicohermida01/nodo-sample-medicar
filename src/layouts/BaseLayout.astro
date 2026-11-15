@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import { site } from '../content/site';
+import { buildStructuredData } from '../lib/structured-data';
+import heroPortrait from '../assets/fotos/retrato-hero.jpg';
+import { getImage } from 'astro:assets';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = site.meta.title, description = site.meta.description } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = await getImage({ src: heroPortrait, width: 1200, format: 'jpg' });
+const ogImageUrl = new URL(ogImage.src, siteUrl).href;
+const structuredData = buildStructuredData(siteUrl);
+---
+
+<!doctype html>
+<html lang={site.meta.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#faf8f3" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={site.meta.locale} />
+    <meta property="og:site_name" content={site.meta.siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Enables the IntersectionObserver reveal fallback only when JS runs. -->
+    <script is:inline>
+      document.documentElement.classList.add('js-reveal');
+    </script>
+  </head>
+  <body class="min-h-dvh">
+    <slot />
+    <script>
+      import { initReveal } from '../lib/reveal';
+      initReveal();
+    </script>
+  </body>
+</html>

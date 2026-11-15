@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  titleMuted?: string | undefined;
+  intro?: string | undefined;
+  align?: 'start' | 'center';
+  class?: string;
+}
+
+const { id, title, titleMuted, intro, align = 'start', class: className } = Astro.props;
+---
+
+<header
+  class:list={[
+    'reveal mb-12 md:mb-16',
+    align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl',
+    className,
+  ]}
+>
+  <h2 id={id} class="text-display-md text-ink">
+    {title}
+    {titleMuted && <span class="block text-ink-soft">{titleMuted}</span>}
+  </h2>
+  {intro && <p class="mt-5 text-lg text-ink-muted">{intro}</p>}
+</header>

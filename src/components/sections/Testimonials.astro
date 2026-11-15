@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { site } from '../../content/site';
+
+const { testimonials, sections, ui } = site;
+const s = sections.testimonials;
+const hasPlaceholders = testimonials.some((t) => t.isPlaceholder);
+---
+
+<Section id={s.anchor} tone="alt" labelledby="testimonials-title">
+  <SectionHeading id="testimonials-title" title={s.title} />
+
+  {
+    hasPlaceholders && (
+      <p class="reveal -mt-6 mb-10 flex max-w-2xl items-start gap-3 rounded-chip border border-border-strong bg-surface px-4 py-3 text-[0.9375rem] text-ink-muted md:-mt-8">
+        <Icon name="lucide:info" class="mt-0.5 size-5 shrink-0 text-brand" aria-hidden="true" stroke-width="1.5" />
+        <span>{ui.testimonials.placeholderNotice}</span>
+      </p>
+    )
+  }
+
+  <ul class="grid gap-5 md:grid-cols-3">
+    {
+      testimonials.map((t, i) => (
+        <li class="reveal" style={`--delay: ${i * 80}ms`}>
+          <figure class="flex h-full flex-col justify-between gap-8 rounded-card bg-surface-raised p-7 md:p-8">
+            <blockquote class="font-serif text-[1.3125rem] leading-snug text-ink">“{t.quote}”</blockquote>
+            <figcaption class="text-[0.9375rem] text-ink-muted">{t.author}</figcaption>
+          </figure>
+        </li>
+      ))
+    }
+  </ul>
+</Section>

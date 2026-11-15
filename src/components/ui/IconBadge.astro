@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+---
+
+<span
+  class:list={[
+    'inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-brand-soft/50 text-brand',
+    className,
+  ]}
+  aria-hidden="true"
+>
+  <Icon name={`lucide:${name}`} class="size-5" stroke-width="1.5" />
+</span>

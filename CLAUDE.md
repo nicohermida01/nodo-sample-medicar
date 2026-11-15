@@ -29,7 +29,7 @@ src/
   styles/global.css      # Tailwind + tokens de diseño (@theme)
   layouts/               # Layout base (head, SEO, JSON-LD, fuentes)
   components/sections/   # Una sección de la landing por componente
-  components/ui/         # Átomos reutilizables (Button, Card, Eyebrow, Icon...)
+  components/ui/         # Átomos reutilizables (Button, Icon, Section...)
   assets/fotos/          # Retratos de la profesional (placeholders marcados hasta tener fotos reales)
   assets/consultorio/    # Fotos del consultorio
   assets/icons/          # SVGs propios si hacen falta
@@ -96,17 +96,16 @@ Patrones concretos tomados de las referencias:
 
 - **Navbar**: logo/nombre a la izquierda, 4-5 links centrados en texto chico, CTA píldora a la derecha.
   Fondo crudo/blanco, sin top bar de contacto.
-- **Hero**: split asimétrico en desktop — texto a la izquierda (eyebrow con guion, titular serif
+- **Hero**: split asimétrico en desktop — texto a la izquierda (titular serif
   grande, bajada corta, CTA oscuro + CTA claro, prueba de confianza chica), foto vertical a la derecha en
   marco con radio grande y 1-2 tarjetas flotantes (nombre + MP, horario/próximo turno). En mobile, foto
   arriba.
 - **Franja de credenciales**: fila horizontal separada por líneas finas arriba y abajo; números grandes
   livianos ("12+") con label chico al lado, y una celda final con CTA suave sobre fondo salvia claro.
 - **Sobre mí**: foto en marco redondeado a un lado con una cita o card de nombre superpuesta, y al otro
-  eyebrow + titular + 2 párrafos + lista corta con íconos en círculo.
+  titular + 2 párrafos + lista corta con íconos en círculo.
 - **Servicios**: titular centrado (con segunda línea apagada), grid de cards altas con ícono en círculo
-  arriba a la izquierda, numeración chica ("01") arriba a la derecha, título, descripción y link
-  "Ver más →". Las cards pueden alternar tintes muy suaves (salvia, arena, niebla) sobre fondo crudo.
+  arriba a la izquierda, título y descripción (sin numeración decorativa). Las cards pueden alternar tintes muy suaves (salvia, arena, niebla) sobre fondo crudo.
 - **CTA final**: bloque ancho con fondo salvia claro y radio grande, titular serif grande a la izquierda
   y CTA oscuro a la derecha con una línea de microcopy tranquilizadora debajo.
 - **Footer**: minimal, una o dos filas, texto chico.
@@ -116,8 +115,9 @@ Patrones concretos tomados de las referencias:
 - **Tipografía**: `Newsreader Variable` para titulares (serif editorial amable; peso 400, nunca más de 500;
   `letter-spacing: -0.01em`; `line-height` 1.05-1.15) y `Figtree Variable` para el cuerpo (sans humanista,
   400/500; 600 solo en labels y botones). Cuerpo base de 18px (el público incluye adultos mayores), escala
-  fluida con `clamp()` e interlineado cómodo (1.6-1.7 en párrafos). Eyebrows: 12-13px, mayúsculas,
-  `letter-spacing: 0.12em`, peso 500, precedidos por un guion corto de 24px. Fuentes self-hosted
+  fluida con `clamp()` e interlineado cómodo (1.6-1.7 en párrafos). **Sin eyebrows** (etiquetas chicas
+  sobre los titulares): el titular habla solo. Numeración solo cuando la secuencia informa (pasos de la
+  primera consulta). Fuentes self-hosted
   (Fontsource) con `font-display: swap`.
 - **Color** (tokens en `@theme`; nunca colores hardcodeados en componentes). Valores iniciales derivados de
   las referencias, ajustables:

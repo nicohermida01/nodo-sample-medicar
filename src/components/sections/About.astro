@@ -1,0 +1,51 @@
+---
+import { Picture } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { site, licenseLabel } from '../../content/site';
+import photo from '../../assets/fotos/retrato-sobre-mi.jpg';
+
+const { professional, sections, ui } = site;
+const s = sections.about;
+---
+
+<Section id={s.anchor} tone="alt" labelledby="about-title">
+  <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
+    <figure class="reveal relative mx-auto w-full max-w-[28rem] lg:col-span-5 lg:max-w-none">
+      <div class="overflow-hidden rounded-photo bg-tint-sand">
+        <Picture
+          formats={["avif", "webp"]}
+          src={photo}
+          alt={ui.about.photoAlt}
+          widths={[420, 640, 840]}
+          sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, 92vw"
+          class="aspect-[4/5] h-auto w-full object-cover"
+        />
+      </div>
+      <figcaption class="absolute -bottom-6 left-4 right-4 rounded-chip bg-surface-raised p-5 shadow-float sm:left-6 sm:right-6">
+        <p class="font-serif text-[1.1875rem] leading-snug text-ink">“{ui.about.quote}”</p>
+        <p class="mt-2 text-[0.875rem] text-ink-muted">{professional.name} · {licenseLabel}</p>
+      </figcaption>
+    </figure>
+
+    <div class="lg:col-span-7">
+      <SectionHeading id="about-title" title={s.title} titleMuted={s.titleMuted} class="!mb-8" />
+      <div class="reveal max-w-[38rem] space-y-5 text-ink-muted">
+        {professional.bio.map((p) => <p>{p}</p>)}
+      </div>
+      <ul class="reveal mt-10 grid gap-4" style="--delay: 80ms">
+        {
+          ui.about.facts.map((fact) => (
+            <li class="flex items-center gap-4">
+              <span class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-tint-sage text-brand" aria-hidden="true">
+                <Icon name="lucide:check" class="size-4.5" stroke-width="1.75" />
+              </span>
+              <span class="text-ink">{fact}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Section>

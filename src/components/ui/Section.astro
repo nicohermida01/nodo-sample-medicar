@@ -1,0 +1,30 @@
+---
+import Container from './Container.astro';
+
+type Tone = 'surface' | 'alt' | 'sage';
+
+interface Props {
+  id?: string;
+  tone?: Tone;
+  labelledby?: string;
+  class?: string;
+}
+
+const { id, tone = 'surface', labelledby, class: className } = Astro.props;
+
+const tones: Record<Tone, string> = {
+  surface: 'bg-surface',
+  alt: 'bg-surface-alt',
+  sage: 'bg-tint-sage',
+};
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  class:list={['py-20 md:py-28 lg:py-32', tones[tone], className]}
+>
+  <Container>
+    <slot />
+  </Container>
+</section>

@@ -1,0 +1,61 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from '../ui/Container.astro';
+import { site, links, licenseLabel } from '../../content/site';
+
+const { professional, contact, office, footer, social, ui } = site;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-surface pb-28 pt-16 lg:pb-12">
+  <Container>
+    <div class="grid gap-10 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <p class="font-serif text-display-sm text-ink">{professional.name}</p>
+        <p class="mt-1 text-ink-muted">{professional.title} · {ui.licensePrefix} {licenseLabel}</p>
+        <p class="mt-1 text-ink-muted">
+          {office.address.street}{office.address.detail && `, ${office.address.detail}`}, {office.address.city}
+        </p>
+      </div>
+
+      <div class="md:col-span-4">
+        <p class="text-[0.9375rem] font-semibold text-ink">{ui.footer.contactTitle}</p>
+        <ul class="mt-2 text-ink-muted">
+          <li>
+            <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" class="link-underline inline-flex min-h-11 items-center hover:text-ink">
+              {contact.phoneDisplay}
+            </a>
+          </li>
+          <li>
+            <a href={links.email} class="link-underline inline-flex min-h-11 items-center hover:text-ink">{contact.email}</a>
+          </li>
+          {
+            social.map((sn) => (
+              <li>
+                <a href={sn.href} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-11 items-center gap-2 hover:text-ink">
+                  <Icon name={`lucide:${sn.icon}`} class="size-4.5" aria-hidden="true" stroke-width="1.5" />
+                  <span class="link-underline">{sn.label}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <p class="text-[0.9375rem] font-semibold text-ink">{ui.footer.hoursTitle}</p>
+        <ul class="mt-2 space-y-2 text-ink-muted">
+          {office.hours.map((h) => <li>{h.label}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-[0.875rem] text-ink-muted md:flex-row md:items-start md:justify-between">
+      <div class="space-y-1">
+        <p>{footer.legal}</p>
+        {footer.demoNotice.show && <p class="font-semibold text-brand">{footer.demoNotice.text}</p>}
+      </div>
+      <p class="shrink-0">© {year} {professional.name}. {ui.footer.rights} {ui.footer.credit}.</p>
+    </div>
+  </Container>
+</footer>

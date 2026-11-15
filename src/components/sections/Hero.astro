@@ -1,0 +1,120 @@
+---
+import { Picture } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import { site, links, licenseLabel } from '../../content/site';
+import portrait from '../../assets/fotos/retrato-hero.jpg';
+
+const { professional, hero, insurances, office, ui, cta } = site;
+const insurancePreview = insurances.list.slice(0, 3).join(', ');
+const insuranceRest = insurances.list.length - 3;
+const statusCopy = JSON.stringify({ ...ui.status, locale: site.meta.lang, timeZone: office.timeZone, hours: office.hours });
+---
+
+<section id="top" class="relative overflow-hidden pb-16 pt-28 md:pb-24 md:pt-36" aria-labelledby="hero-title">
+  <Container class="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+    <div class="lg:col-span-7 lg:pr-6">
+      <p class="hero-in flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.9375rem] text-ink-muted">
+        <span class="font-semibold text-brand">{professional.title}</span>
+        <span aria-hidden="true" class="h-3.5 w-px bg-border-strong"></span>
+        <span>{ui.licensePrefix} {licenseLabel}</span>
+      </p>
+
+      <h1 id="hero-title" class="hero-in mt-5 text-display-lg text-ink" style="--delay: 80ms">
+        {hero.headline}
+        <span class="block text-ink-soft">{hero.headlineMuted}</span>
+      </h1>
+
+      <p class="hero-in mt-6 max-w-[34rem] text-lg text-ink-muted" style="--delay: 160ms">
+        <span class="text-ink">{professional.name}</span>, {hero.byline}
+        {' '}{hero.lead}
+      </p>
+
+      <div class="hero-in mt-9 flex flex-col gap-3 sm:flex-row" style="--delay: 240ms">
+        <Button href={links.booking} external arrow size="lg">{cta.primaryLabel}</Button>
+        <Button href={links.whatsapp} external variant="secondary" icon="message-circle" size="lg">
+          {cta.whatsappLabel}
+        </Button>
+      </div>
+
+      <ul class="hero-in mt-10 flex flex-col gap-3 border-t border-border pt-6 text-[0.9375rem] text-ink-muted sm:flex-row sm:gap-8" style="--delay: 320ms">
+        <li class="flex items-center gap-2.5">
+          <Icon name="lucide:badge-check" class="size-5 shrink-0 text-brand" aria-hidden="true" stroke-width="1.5" />
+          <span>{insurancePreview}{insuranceRest > 0 && ` +${insuranceRest}`}</span>
+        </li>
+        <li class="flex items-center gap-2.5">
+          <Icon name="lucide:map-pin" class="size-5 shrink-0 text-brand" aria-hidden="true" stroke-width="1.5" />
+          <span>{office.address.street}, {office.address.city}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[30rem] lg:col-span-5 lg:max-w-none">
+      <div class="hero-in overflow-hidden rounded-photo bg-tint-sage" style="--delay: 200ms">
+        <Picture
+          formats={["avif", "webp"]}
+          src={portrait}
+          alt={hero.portraitAlt}
+          widths={[480, 720, 960, 1200]}
+          sizes="(min-width: 1024px) 460px, (min-width: 640px) 480px, 92vw"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-[4/5] h-auto w-full object-cover"
+        />
+      </div>
+
+      <div
+        class="hero-in absolute right-4 top-4 rounded-chip bg-surface-raised px-4 py-3 shadow-float sm:-right-4 lg:-right-6 lg:top-8"
+        style="--delay: 500ms"
+      >
+        <p class="font-serif text-[1.0625rem] leading-tight text-ink">{professional.name}</p>
+        <p class="text-[0.8125rem] text-ink-muted">{licenseLabel}</p>
+      </div>
+
+      <div
+        class="hero-in absolute -bottom-6 left-4 right-4 rounded-chip bg-surface-raised p-4 shadow-float sm:left-6 sm:right-auto sm:min-w-[17rem] lg:-left-10 lg:bottom-10"
+        style="--delay: 620ms"
+        data-open-status={statusCopy}
+      >
+        <div class="flex items-start gap-3">
+          <span class="mt-1 inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-tint-sage text-brand" aria-hidden="true">
+            <Icon name="lucide:clock" class="size-4.5" stroke-width="1.5" />
+          </span>
+          <div class="min-w-0">
+            <p class="flex items-center gap-2 text-[0.9375rem] font-semibold text-ink" aria-live="polite">
+              <span data-status-dot class="hidden size-2 rounded-full bg-brand-soft" aria-hidden="true"></span>
+              <span data-status-label>{ui.status.staticLabel}</span>
+            </p>
+            <p class="text-[0.875rem] text-ink-muted" data-status-detail>
+              {office.hours.map((h) => h.label).join(' · ')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  import { getOpenStatus, type StatusCopy } from '../../lib/open-status';
+  import type { OpeningHours } from '../../content/site';
+
+  type Payload = StatusCopy & { locale: string; timeZone: string; hours: OpeningHours[] };
+
+  const card = document.querySelector<HTMLElement>('[data-open-status]');
+  if (card?.dataset.openStatus) {
+    const data = JSON.parse(card.dataset.openStatus) as Payload;
+    const status = getOpenStatus(data.hours, data, data.locale, data.timeZone);
+    const label = card.querySelector('[data-status-label]');
+    const detail = card.querySelector('[data-status-detail]');
+    const dot = card.querySelector<HTMLElement>('[data-status-dot]');
+    if (label) label.textContent = status.label;
+    if (detail && status.detail) detail.textContent = status.detail;
+    if (dot) {
+      dot.classList.remove('hidden');
+      dot.classList.toggle('bg-brand', status.open);
+      dot.classList.toggle('bg-ink-soft', !status.open);
+    }
+  }
+</script>

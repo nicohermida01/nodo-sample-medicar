@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+
+type Variant = 'primary' | 'secondary' | 'quiet';
+type Size = 'md' | 'lg';
+
+interface Props extends Omit<HTMLAttributes<'a'>, 'class'> {
+  href: string;
+  variant?: Variant;
+  size?: Size;
+  /** Lucide icon name shown before the label. */
+  icon?: string;
+  /** Show a trailing arrow that nudges on hover. */
+  arrow?: boolean;
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  icon,
+  arrow = false,
+  external = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const variants: Record<Variant, string> = {
+  primary:
+    'bg-accent text-on-accent hover:bg-accent-hover hover:shadow-lift',
+  secondary:
+    'bg-surface-raised text-ink border border-border-strong hover:border-brand-soft hover:bg-tint-sage',
+  quiet: 'bg-tint-sage text-accent hover:bg-surface-raised hover:shadow-lift',
+};
+
+const sizes: Record<Size, string> = {
+  md: 'min-h-11 px-5 text-[0.9375rem]',
+  lg: 'min-h-13 px-6 text-base',
+};
+
+const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<a
+  href={href}
+  class:list={[
+    'group inline-flex items-center justify-center gap-2.5 rounded-full font-semibold leading-tight',
+    'transition-[background-color,border-color,box-shadow,transform] duration-300 ease-out-soft',
+    'hover:-translate-y-px motion-reduce:hover:translate-y-0',
+    variants[variant],
+    sizes[size],
+    className,
+  ]}
+  {...externalProps}
+  {...rest}
+>
+  {icon && <Icon name={`lucide:${icon}`} class="size-5 shrink-0" aria-hidden="true" stroke-width="1.5" />}
+  <span><slot /></span>
+  {
+    arrow && (
+      <Icon
+        name="lucide:arrow-right"
+        class="size-4.5 shrink-0 transition-transform duration-300 ease-out-soft group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0"
+        aria-hidden="true"
+        stroke-width="1.75"
+      />
+    )
+  }
+</a>

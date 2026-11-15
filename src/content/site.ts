@@ -76,6 +76,73 @@ export interface SocialLink {
   icon: string;
 }
 
+export type SectionId =
+  | 'credentials'
+  | 'about'
+  | 'services'
+  | 'firstVisit'
+  | 'insurances'
+  | 'testimonials'
+  | 'office'
+  | 'faq';
+
+export interface SectionCopy {
+  /** Anchor id used by the navigation. */
+  anchor: string;
+  /** Short label for the navigation, when the section is linked. */
+  navLabel?: string;
+  title: string;
+  titleMuted?: string;
+  intro?: string;
+}
+
+export interface UiCopy {
+  skipLink: string;
+  menuOpen: string;
+  menuClose: string;
+  navLabel: string;
+  homeLabel: string;
+  licensePrefix: string;
+  credentials: {
+    yearsSuffix: string;
+    yearsLabel: string;
+    licenseLabel: string;
+    educationLabel: string;
+    insurancesLabel: string;
+    insurancesMore: string;
+  };
+  status: {
+    openNow: string;
+    closedNow: string;
+    opensAt: string;
+    todayHours: string;
+    closedToday: string;
+    staticLabel: string;
+    until: string;
+    today: string;
+    tomorrow: string;
+    /** Word placed before a weekday name, e.g. "el" in "Abre el lunes". */
+    weekdayPrefix: string;
+    /** Word before an opening time, e.g. "a las" in "Abre mañana a las 9 h". */
+    at: string;
+    hoursSuffix: string;
+  };
+  about: { photoAlt: string; quote: string; facts: string[] };
+  insurances: { particularLabel: string };
+  testimonials: { placeholderNotice: string };
+  office: {
+    addressLabel: string;
+    hoursLabel: string;
+    contactLabel: string;
+    mapButton: string;
+    mapTitle: string;
+    mapOpenExternal: string;
+    photos: Array<{ key: 'sala-espera' | 'consultorio' | 'fachada'; alt: string }>;
+  };
+  footer: { contactTitle: string; hoursTitle: string; rights: string; credit: string };
+  stickyBar: { booking: string; whatsapp: string };
+}
+
 export interface SiteContent {
   meta: {
     siteName: string;
@@ -86,10 +153,20 @@ export interface SiteContent {
   };
   professional: Professional;
   hero: {
-    eyebrow: string;
+    /** First line of the headline. */
     headline: string;
+    /** Second line, rendered in a muted tone. */
+    headlineMuted: string;
+    /** Follows the professional's name in the hero lead, e.g. "dermatóloga en Rosario." */
+    byline: string;
     lead: string;
+    /** Image alt text for the hero portrait. */
+    portraitAlt: string;
   };
+  /** Section titles and intros. `titleMuted` renders as a muted second line. */
+  sections: Record<SectionId, SectionCopy>;
+  /** Interface strings (navigation, labels, statuses). */
+  ui: UiCopy;
   services: Service[];
   firstVisit: Step[];
   insurances: { list: string[]; note: string };
@@ -98,6 +175,8 @@ export interface SiteContent {
     name: string;
     address: Address;
     hours: OpeningHours[];
+    /** IANA time zone used for the live open/closed status. */
+    timeZone: string;
     notes: string[];
   };
   contact: {
@@ -113,7 +192,9 @@ export interface SiteContent {
     primaryLabel: string;
     whatsappLabel: string;
     finalTitle: string;
+    finalTitleMuted: string;
     finalText: string;
+    finalNote: string;
   };
   faq: FaqItem[];
   social: SocialLink[];
@@ -154,9 +235,118 @@ export const site: SiteContent = {
   },
 
   hero: {
-    eyebrow: 'Dermatología en Rosario',
-    headline: 'Cuidamos tu piel con tiempo, ciencia y cercanía.',
+    headline: 'Cuidamos tu piel',
+    headlineMuted: 'con tiempo, ciencia y cercanía.',
+    byline: 'dermatóloga en Rosario.',
     lead: 'Consultas para toda la familia, con diagnóstico cuidadoso y tratamientos pensados para vos.',
+    portraitAlt: 'Retrato de la Dra. Julieta Ferrari en su consultorio (imagen de ejemplo)',
+  },
+
+  sections: {
+    credentials: { anchor: 'credenciales', title: 'Formación y trayectoria' },
+    about: {
+      anchor: 'sobre-mi',
+      navLabel: 'Sobre mí',
+      title: 'Una consulta sin apuro,',
+      titleMuted: 'con explicaciones claras.',
+    },
+    services: {
+      anchor: 'tratamientos',
+      navLabel: 'Tratamientos',
+      title: '¿En qué te puedo ayudar?',
+      titleMuted: 'Motivos de consulta frecuentes.',
+      intro: 'Si tu consulta no está en la lista, escribinos igual: te orientamos sobre si es para dermatología.',
+    },
+    firstVisit: {
+      anchor: 'primera-consulta',
+      title: 'Cómo es la primera consulta',
+      intro: 'Cuatro pasos simples, sin sorpresas.',
+    },
+    insurances: {
+      anchor: 'obras-sociales',
+      navLabel: 'Obras sociales',
+      title: 'Obras sociales y prepagas',
+    },
+    testimonials: {
+      anchor: 'testimonios',
+      title: 'Lo que cuentan los pacientes',
+    },
+    office: {
+      anchor: 'consultorio',
+      navLabel: 'Consultorio',
+      title: 'El consultorio',
+      titleMuted: 'en Bv. Oroño, Rosario.',
+    },
+    faq: {
+      anchor: 'preguntas',
+      navLabel: 'Preguntas',
+      title: 'Preguntas frecuentes',
+    },
+  },
+
+  ui: {
+    skipLink: 'Saltar al contenido',
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
+    navLabel: 'Navegación principal',
+    homeLabel: 'Inicio',
+    licensePrefix: 'Matrícula',
+    credentials: {
+      yearsSuffix: '+',
+      yearsLabel: 'años de práctica clínica',
+      licenseLabel: 'Matrícula provincial',
+      educationLabel: 'Médica egresada de la UNR, especialista en Dermatología',
+      insurancesLabel: 'obras sociales y prepagas',
+      insurancesMore: 'Ver coberturas',
+    },
+    status: {
+      openNow: 'Abierto ahora',
+      closedNow: 'Cerrado ahora',
+      opensAt: 'Abre',
+      todayHours: 'Hoy de',
+      closedToday: 'Hoy no hay atención',
+      staticLabel: 'Horarios de atención',
+      until: 'hasta las',
+      today: 'hoy',
+      tomorrow: 'mañana',
+      weekdayPrefix: 'el',
+      at: 'a las',
+      hoursSuffix: 'h',
+    },
+    about: {
+      photoAlt: 'La Dra. Julieta Ferrari en su escritorio de consulta (imagen de ejemplo)',
+      quote: 'Prefiero que salgas de la consulta entendiendo qué tenés y qué hacer.',
+      facts: [
+        'Médica egresada de la Universidad Nacional de Rosario',
+        'Especialista en Dermatología',
+        'Miembro de una sociedad dermatológica nacional',
+      ],
+    },
+    insurances: { particularLabel: 'Particulares' },
+    testimonials: {
+      placeholderNotice:
+        'Testimonios de ejemplo: este es un sitio de demostración y no corresponden a pacientes reales.',
+    },
+    office: {
+      addressLabel: 'Dirección',
+      hoursLabel: 'Horarios',
+      contactLabel: 'Contacto',
+      mapButton: 'Ver mapa',
+      mapTitle: 'Mapa de ubicación del consultorio',
+      mapOpenExternal: 'Abrir en Google Maps',
+      photos: [
+        { key: 'sala-espera', alt: 'Sala de espera del consultorio (imagen de ejemplo)' },
+        { key: 'consultorio', alt: 'Consultorio con camilla y escritorio (imagen de ejemplo)' },
+        { key: 'fachada', alt: 'Entrada del edificio sobre Bv. Oroño (imagen de ejemplo)' },
+      ],
+    },
+    footer: {
+      contactTitle: 'Contacto',
+      hoursTitle: 'Horarios',
+      rights: 'Todos los derechos reservados.',
+      credit: 'Sitio realizado por Estudio Nodo',
+    },
+    stickyBar: { booking: 'Pedir turno', whatsapp: 'WhatsApp' },
   },
 
   services: [
@@ -268,6 +458,7 @@ export const site: SiteContent = {
         closes: '13:00',
       },
     ],
+    timeZone: 'America/Argentina/Buenos_Aires',
     notes: ['Atención con turno previo.'],
   },
 
@@ -283,8 +474,10 @@ export const site: SiteContent = {
   cta: {
     primaryLabel: 'Pedir turno',
     whatsappLabel: 'Escribir por WhatsApp',
-    finalTitle: '¿Querés que revisemos tu piel?',
+    finalTitle: '¿Querés que revisemos',
+    finalTitleMuted: 'tu piel?',
     finalText: 'Pedí tu turno en pocos pasos. Te respondemos a la brevedad.',
+    finalNote: 'Sin formularios: reservás online o escribís por WhatsApp.',
   },
 
   faq: [
