@@ -15,9 +15,9 @@ const statusCopy = JSON.stringify({ ...ui.status, locale: site.meta.lang, timeZo
 <section id="top" class="relative overflow-hidden pb-16 pt-24 md:pb-24 md:pt-36" aria-labelledby="hero-title">
   <Container class="grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
     <div class="lg:col-span-7">
-      <h1 id="hero-title" class="hero-in text-display-lg text-ink" style="--delay: 80ms">
+      <h1 id="hero-title" class="hero-in text-display-xl text-ink" style="--delay: 80ms">
         {hero.headline}
-        <span class="block text-ink-soft">{hero.headlineMuted}</span>
+        {hero.headlineMuted.map((line) => <span class="block text-ink-soft">{' '}{line}</span>)}
       </h1>
 
       <p class="hero-in mt-5 max-w-[34rem] text-lg text-ink-muted" style="--delay: 160ms">

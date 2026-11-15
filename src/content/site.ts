@@ -155,8 +155,8 @@ export interface SiteContent {
   hero: {
     /** First line of the headline. */
     headline: string;
-    /** Second line, rendered in a muted tone. */
-    headlineMuted: string;
+    /** Muted continuation, one entry per forced line break. */
+    headlineMuted: string[];
     /** Follows the professional's name in the hero lead, e.g. "dermatóloga en Rosario." */
     byline: string;
     lead: string;
@@ -236,7 +236,7 @@ export const site: SiteContent = {
 
   hero: {
     headline: 'Cuidamos tu piel',
-    headlineMuted: 'con tiempo, ciencia y cercanía.',
+    headlineMuted: ['con tiempo, ciencia', 'y cercanía.'],
     byline: 'dermatóloga en Rosario.',
     lead: 'Consultas para toda la familia, con diagnóstico cuidadoso y tratamientos pensados para vos.',
     portraitAlt: 'Retrato de la Dra. Julieta Ferrari en su consultorio (imagen de ejemplo)',
