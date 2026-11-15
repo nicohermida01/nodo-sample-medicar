@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-15T00:00:00Z",
+  "title": "Design System: Dra. Julieta Ferrari, Dermatología",
+  "extensions": {
+    "colorMeta": {
+      "surface": {
+        "role": "neutral",
+        "displayName": "Crudo",
+        "tonalRamp": [
+          "oklch(15% 0.003 89)",
+          "oklch(27% 0.004 89)",
+          "oklch(39% 0.006 89)",
+          "oklch(51% 0.007 89)",
+          "oklch(63% 0.006 89)",
+          "oklch(75% 0.005 89)",
+          "oklch(86% 0.004 89)",
+          "oklch(95% 0.003 89)"
+        ]
+      },
+      "surface-alt": {
+        "role": "neutral",
+        "displayName": "Linen",
+        "tonalRamp": [
+          "oklch(15% 0.005 107)",
+          "oklch(27% 0.006 107)",
+          "oklch(39% 0.007 107)",
+          "oklch(51% 0.009 107)",
+          "oklch(63% 0.008 107)",
+          "oklch(75% 0.007 107)",
+          "oklch(86% 0.006 107)",
+          "oklch(95% 0.005 107)"
+        ]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(27% 0.000 90)",
+          "oklch(39% 0.000 90)",
+          "oklch(51% 0.000 90)",
+          "oklch(63% 0.000 90)",
+          "oklch(75% 0.000 90)",
+          "oklch(86% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "tint-sage": {
+        "role": "secondary",
+        "displayName": "Sage Field",
+        "tonalRamp": [
+          "oklch(15% 0.014 122)",
+          "oklch(27% 0.019 122)",
+          "oklch(39% 0.023 122)",
+          "oklch(51% 0.027 122)",
+          "oklch(63% 0.026 122)",
+          "oklch(75% 0.022 122)",
+          "oklch(86% 0.017 122)",
+          "oklch(95% 0.014 122)"
+        ]
+      },
+      "tint-sand": {
+        "role": "secondary",
+        "displayName": "Warm Sand",
+        "tonalRamp": [
+          "oklch(15% 0.006 82)",
+          "oklch(27% 0.008 82)",
+          "oklch(39% 0.010 82)",
+          "oklch(51% 0.012 82)",
+          "oklch(63% 0.012 82)",
+          "oklch(75% 0.010 82)",
+          "oklch(86% 0.008 82)",
+          "oklch(95% 0.006 82)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Olive Ink",
+        "tonalRamp": [
+          "oklch(15% 0.005 151)",
+          "oklch(27% 0.007 151)",
+          "oklch(39% 0.008 151)",
+          "oklch(51% 0.010 151)",
+          "oklch(63% 0.009 151)",
+          "oklch(75% 0.008 151)",
+          "oklch(86% 0.006 151)",
+          "oklch(95% 0.005 151)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "tonalRamp": [
+          "oklch(15% 0.009 139)",
+          "oklch(27% 0.012 139)",
+          "oklch(39% 0.015 139)",
+          "oklch(51% 0.018 139)",
+          "oklch(63% 0.017 139)",
+          "oklch(75% 0.014 139)",
+          "oklch(86% 0.011 139)",
+          "oklch(95% 0.009 139)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "tonalRamp": [
+          "oklch(15% 0.010 132)",
+          "oklch(27% 0.013 132)",
+          "oklch(39% 0.016 132)",
+          "oklch(51% 0.019 132)",
+          "oklch(63% 0.018 132)",
+          "oklch(75% 0.015 132)",
+          "oklch(86% 0.012 132)",
+          "oklch(95% 0.010 132)"
+        ]
+      },
+      "brand": {
+        "role": "primary",
+        "displayName": "Sage Olive",
+        "tonalRamp": [
+          "oklch(15% 0.019 139)",
+          "oklch(27% 0.025 139)",
+          "oklch(39% 0.031 139)",
+          "oklch(51% 0.036 139)",
+          "oklch(63% 0.035 139)",
+          "oklch(75% 0.029 139)",
+          "oklch(86% 0.023 139)",
+          "oklch(95% 0.019 139)"
+        ]
+      },
+      "brand-soft": {
+        "role": "primary",
+        "displayName": "Faded Sage",
+        "tonalRamp": [
+          "oklch(15% 0.023 132)",
+          "oklch(27% 0.030 132)",
+          "oklch(39% 0.037 132)",
+          "oklch(51% 0.044 132)",
+          "oklch(63% 0.042 132)",
+          "oklch(75% 0.035 132)",
+          "oklch(86% 0.028 132)",
+          "oklch(95% 0.023 132)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Olive Door",
+        "tonalRamp": [
+          "oklch(15% 0.014 139)",
+          "oklch(27% 0.018 139)",
+          "oklch(39% 0.023 139)",
+          "oklch(51% 0.027 139)",
+          "oklch(63% 0.026 139)",
+          "oklch(75% 0.021 139)",
+          "oklch(86% 0.017 139)",
+          "oklch(95% 0.014 139)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Olive Door Hover",
+        "tonalRamp": [
+          "oklch(15% 0.019 139)",
+          "oklch(27% 0.025 139)",
+          "oklch(39% 0.031 139)",
+          "oklch(51% 0.036 139)",
+          "oklch(63% 0.035 139)",
+          "oklch(75% 0.029 139)",
+          "oklch(86% 0.023 139)",
+          "oklch(95% 0.019 139)"
+        ]
+      },
+      "on-accent": {
+        "role": "neutral",
+        "displayName": "On Olive Door",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(27% 0.000 90)",
+          "oklch(39% 0.000 90)",
+          "oklch(51% 0.000 90)",
+          "oklch(63% 0.000 90)",
+          "oklch(75% 0.000 90)",
+          "oklch(86% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "oklch(15% 0.005 112)",
+          "oklch(27% 0.007 112)",
+          "oklch(39% 0.009 112)",
+          "oklch(51% 0.010 112)",
+          "oklch(63% 0.010 112)",
+          "oklch(75% 0.008 112)",
+          "oklch(86% 0.007 112)",
+          "oklch(95% 0.005 112)"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "tonalRamp": [
+          "oklch(15% 0.009 121)",
+          "oklch(27% 0.012 121)",
+          "oklch(39% 0.014 121)",
+          "oklch(51% 0.017 121)",
+          "oklch(63% 0.016 121)",
+          "oklch(75% 0.014 121)",
+          "oklch(86% 0.011 121)",
+          "oklch(95% 0.009 121)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only, three balanced lines, muted continuation."
+      },
+      "headline-lg": {
+        "displayName": "Headline Large",
+        "purpose": "Final CTA band heading."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section heading; credentials years figure."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and step headings, step numerals, mobile menu links, footer name."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Testimonial quotes and insurance pills."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Section intros and hero/CTA leads."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running copy at 18px; FAQ answers capped at 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav links, credential captions, list meta."
+      },
+      "label-strong": {
+        "displayName": "Label Strong",
+        "purpose": "Button text (md), definition terms, footer column titles."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Floating-card detail lines, footer legal row."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float",
+        "value": "0 10px 30px -6px rgb(31 36 32 / 0.12), 0 2px 6px rgb(31 36 32 / 0.05)",
+        "purpose": "White cards overlapping a photo frame only."
+      },
+      {
+        "name": "lift",
+        "value": "0 8px 20px -10px rgb(31 36 32 / 0.35)",
+        "purpose": "Hover state of the primary pill, with a 1px rise."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-soft",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "The single easing curve for every transition and entrance."
+      },
+      {
+        "name": "duration-state",
+        "value": "300ms",
+        "purpose": "Hover/color/border/shadow state changes, accordion icon rotation."
+      },
+      {
+        "name": "duration-underline",
+        "value": "400ms",
+        "purpose": "Drawn link underline."
+      },
+      {
+        "name": "duration-sticky",
+        "value": "500ms",
+        "purpose": "Mobile sticky booking bar slide."
+      },
+      {
+        "name": "duration-entrance",
+        "value": "700ms",
+        "purpose": "Hero entrance and scroll reveal: fade plus 14px rise."
+      },
+      {
+        "name": "hero-stagger",
+        "value": "80ms / 160ms / 200ms / 240ms / 320ms / 500ms / 620ms",
+        "purpose": "Headline, lead, photo, buttons, meta row, name card, status card."
+      },
+      {
+        "name": "count-up",
+        "value": "1200ms, ease-out quartic",
+        "purpose": "Credentials years figure, once on view; skipped under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ],
+    "focus": {
+      "value": "outline: 2px solid var(--color-brand); outline-offset: 3px; border-radius: 6px",
+      "purpose": "Global focus-visible ring."
+    },
+    "container": {
+      "maxWidth": "72rem",
+      "header": "72px fixed, hairline once scrolled",
+      "scrollPaddingTop": "5.5rem"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Booking action; the only dark fill on the page.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><span>Pedir turno</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 20px;border-radius:9999px;background:var(--color-accent,#2b3628);color:var(--color-on-accent,#fff);font-family:var(--font-sans);font-size:.9375rem;font-weight:600;line-height:1.25;text-decoration:none;transition:background-color 300ms cubic-bezier(.22,1,.36,1),box-shadow 300ms cubic-bezier(.22,1,.36,1),transform 300ms cubic-bezier(.22,1,.36,1)} .ds-btn-primary svg{transition:transform 300ms cubic-bezier(.22,1,.36,1)} .ds-btn-primary:hover{background:var(--color-accent-hover,#3f4f3b);box-shadow:0 8px 20px -10px rgb(31 36 32 / .35);transform:translateY(-1px)} .ds-btn-primary:hover svg{transform:translateX(4px)} .ds-btn-primary:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px} @media (prefers-reduced-motion:reduce){.ds-btn-primary:hover,.ds-btn-primary:hover svg{transform:none}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "WhatsApp path; always paired beside the primary.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg><span>Escribir por WhatsApp</span></a>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 20px;border-radius:9999px;background:var(--color-surface-raised,#fff);color:var(--color-ink,#1f2420);border:1px solid var(--color-border-strong,#cfd3c6);font-family:var(--font-sans);font-size:.9375rem;font-weight:600;line-height:1.25;text-decoration:none;transition:background-color 300ms cubic-bezier(.22,1,.36,1),border-color 300ms cubic-bezier(.22,1,.36,1),transform 300ms cubic-bezier(.22,1,.36,1)} .ds-btn-secondary:hover{background:var(--color-tint-sage,#e4ebd6);border-color:var(--color-brand-soft,#7d8e71);transform:translateY(-1px)} .ds-btn-secondary:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Serif name-and-license wordmark, muted links with drawn underline, md booking pill.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\"><span class=\"ds-nav-name\">Dra. Julieta Ferrari</span><span class=\"ds-nav-sub\">Médica Dermatóloga · MP 00000</span></a><nav><a class=\"ds-nav-link\" href=\"#\"><span>Tratamientos</span></a><a class=\"ds-nav-link\" href=\"#\"><span>Consultorio</span></a><a class=\"ds-nav-link\" href=\"#\"><span>Preguntas</span></a></nav><a class=\"ds-nav-cta\" href=\"#\">Pedir turno</a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;padding:0 32px;background:var(--color-surface,#faf8f3);border-bottom:1px solid var(--color-border,#e3e4dc);font-family:var(--font-sans)} .ds-nav-brand{display:flex;flex-direction:column;line-height:1.25;text-decoration:none} .ds-nav-name{font-family:var(--font-serif);font-size:1.3125rem;color:var(--color-ink,#1f2420)} .ds-nav-sub{font-size:.8125rem;color:var(--color-ink-muted,#5b6359)} .ds-nav nav{display:flex;gap:4px} .ds-nav-link{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-size:.9375rem;color:var(--color-ink-muted,#5b6359);text-decoration:none;transition:color 300ms} .ds-nav-link span{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-position:0 100%;background-repeat:no-repeat;transition:background-size 400ms cubic-bezier(.22,1,.36,1)} .ds-nav-link:hover{color:var(--color-ink,#1f2420)} .ds-nav-link:hover span,.ds-nav-link:focus-visible span{background-size:100% 1px} .ds-nav-link:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px} .ds-nav-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:9999px;background:var(--color-accent,#2b3628);color:#fff;font-size:.9375rem;font-weight:600;text-decoration:none}"
+    },
+    {
+      "name": "Insurance Pill",
+      "kind": "chip",
+      "refersTo": "pill-insurance",
+      "description": "Static serif pill naming an accepted insurer.",
+      "html": "<ul class=\"ds-pills\"><li class=\"ds-pill\">OSDE</li><li class=\"ds-pill\">Swiss Medical</li><li class=\"ds-pill\">Galeno</li></ul>",
+      "css": ".ds-pills{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0} .ds-pill{display:inline-flex;align-items:center;min-height:56px;padding:0 24px;border-radius:9999px;border:1px solid var(--color-border-strong,#cfd3c6);background:var(--color-surface-raised,#fff);font-family:var(--font-serif);font-size:1.3125rem;color:var(--color-ink,#1f2420)}"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card-service",
+      "description": "Flat hairline card with icon badge, serif title and muted body.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-badge\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><h3 class=\"ds-card-title\">Dermatología clínica</h3><p class=\"ds-card-body\">Acné, rosácea, dermatitis y caída del cabello, con diagnóstico claro y seguimiento.</p></article>",
+      "css": ".ds-card{display:flex;flex-direction:column;max-width:340px;padding:28px;border-radius:20px;border:1px solid var(--color-border,#e3e4dc);background:var(--color-surface-raised,#fff);transition:border-color 300ms,background-color 300ms} .ds-card:hover{border-color:rgb(125 142 113 / .6)} .ds-badge{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;border:1px solid rgb(125 142 113 / .5);color:var(--color-brand,#3f4f3b)} .ds-card-title{margin:32px 0 0;font-family:var(--font-serif);font-weight:400;font-size:clamp(1.5rem,1.25rem + 1vw,1.875rem);line-height:1.2;letter-spacing:-.015em;color:var(--color-ink,#1f2420)} .ds-card-body{margin:12px 0 0;font-family:var(--font-sans);font-size:1.0625rem;line-height:1.6;color:var(--color-ink-muted,#5b6359)}"
+    },
+    {
+      "name": "Open-Status Float Card",
+      "kind": "custom",
+      "refersTo": "card-float",
+      "description": "Signature white card floating over the portrait with live open/closed status.",
+      "html": "<div class=\"ds-photo\"><div class=\"ds-float\"><span class=\"ds-float-icon\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/></svg></span><div><p class=\"ds-float-label\"><span class=\"ds-dot\"></span>Abierto ahora</p><p class=\"ds-float-detail\">Hoy de 9 a 18 h</p></div></div></div>",
+      "css": ".ds-photo{position:relative;width:320px;aspect-ratio:5/4;border-radius:28px;background:var(--color-tint-sage,#e4ebd6);margin-bottom:32px} .ds-float{position:absolute;left:16px;bottom:-24px;display:flex;gap:12px;align-items:flex-start;min-width:17rem;padding:16px;border-radius:14px;background:var(--color-surface-raised,#fff);box-shadow:0 10px 30px -6px rgb(31 36 32 / .12),0 2px 6px rgb(31 36 32 / .05);font-family:var(--font-sans)} .ds-float-icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-top:4px;border-radius:9999px;background:var(--color-tint-sage,#e4ebd6);color:var(--color-brand,#3f4f3b)} .ds-float-label{display:flex;align-items:center;gap:8px;margin:0;font-size:.9375rem;font-weight:600;color:var(--color-ink,#1f2420)} .ds-dot{width:8px;height:8px;border-radius:9999px;background:var(--color-brand,#3f4f3b)} .ds-float-detail{margin:0;font-size:.875rem;color:var(--color-ink-muted,#5b6359)}"
+    },
+    {
+      "name": "Sage CTA Band",
+      "kind": "card",
+      "refersTo": "band-sage",
+      "description": "Final call to action: sage field owning the band, two-tone serif heading, paired pills.",
+      "html": "<section class=\"ds-band\"><h2 class=\"ds-band-title\">Tu piel merece tiempo.<span>Pedí tu primera consulta.</span></h2><a class=\"ds-band-cta\" href=\"#\">Pedir turno</a></section>",
+      "css": ".ds-band{padding:56px 28px;border-radius:28px;background:var(--color-tint-sage,#e4ebd6)} .ds-band-title{margin:0;font-family:var(--font-serif);font-weight:400;font-size:clamp(2.25rem,1.7rem + 2.4vw,3.5rem);line-height:1.06;letter-spacing:-.015em;color:var(--color-accent,#2b3628)} .ds-band-title span{display:block;color:var(--color-brand,#3f4f3b)} .ds-band-cta{display:inline-flex;align-items:center;margin-top:28px;min-height:52px;padding:0 24px;border-radius:9999px;background:var(--color-accent,#2b3628);color:#fff;font-family:var(--font-sans);font-size:1.125rem;font-weight:600;text-decoration:none;transition:background-color 300ms} .ds-band-cta:hover{background:var(--color-accent-hover,#3f4f3b)} .ds-band-cta:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px}"
+    },
+    {
+      "name": "FAQ Accordion",
+      "kind": "custom",
+      "description": "Native details between strong hairlines; serif question, rotating round plus.",
+      "html": "<details class=\"ds-acc\" open><summary><span>¿Atendés obras sociales?</span><span class=\"ds-acc-icon\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></span></summary><p>Sí. Trabajo con OSDE, Swiss Medical y Galeno, entre otras.</p></details>",
+      "css": ".ds-acc{border-top:1px solid var(--color-border-strong,#cfd3c6);border-bottom:1px solid var(--color-border-strong,#cfd3c6)} .ds-acc summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:64px;padding:20px 0;list-style:none;cursor:pointer;font-family:var(--font-serif);font-size:1.375rem;line-height:1.375;color:var(--color-ink,#1f2420);transition:color 300ms} .ds-acc summary::-webkit-details-marker{display:none} .ds-acc summary:hover{color:var(--color-brand,#3f4f3b)} .ds-acc-icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;border-radius:9999px;border:1px solid var(--color-border-strong,#cfd3c6);color:var(--color-brand,#3f4f3b);transition:transform 300ms cubic-bezier(.22,1,.36,1)} .ds-acc[open] .ds-acc-icon{transform:rotate(45deg)} .ds-acc p{max-width:60ch;margin:0;padding:0 48px 24px 0;font-family:var(--font-sans);font-size:1.125rem;line-height:1.65;color:var(--color-ink-muted,#5b6359)} .ds-acc summary:focus-visible{outline:2px solid var(--color-brand);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Open Consulting Room",
+    "overview": "The system reads like a person's practice, not a clinic. A calm crudo ground, sage-olive fields and a single near-black olive pill carry the whole palette; a variable serif speaks in a quiet editorial register while a humanist sans does the explaining at a generous 18px. The page's one memorable device is a portrait set in a soft 28px frame with small white cards floating over its edges, one of which states, live, whether the door is open.\n\nDensity is low and unhurried: large section padding, two-tone headlines whose second line steps back in a muted ink, and 1px warm hairlines doing the structural work that shadows and fills do elsewhere. Depth exists only where a card sits over a photograph. There is no glass, no gradient, no uppercase tracking, no stat badges. Everything a visitor needs to trust the doctor is stated as plain fact in plain type.\n\nAccessibility is part of the world, not an add-on: the audience includes older adults, so body text never drops below 18px, every touch target is at least 44px tall, focus is a visible 2px olive ring, and every movement collapses under reduced motion.",
+    "keyCharacteristics": [
+      "Warm off-white ground with sage tint fields that own whole bands and tiles.",
+      "Newsreader 400 for every heading, with a muted continuation line; Figtree for body and controls.",
+      "Fully rounded pills for every action; dark olive for booking, white with a hairline for WhatsApp.",
+      "Photos in 28px frames on a tint ground, with white floating cards as the only shadowed elements.",
+      "1px warm hairlines (border, border-strong) as the primary structure.",
+      "Soft, slow motion on one easing curve; nothing moves under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Olive Door Rule",
+        "body": "The dark accent pill is the booking action and its direct equivalents. Anything that is not an invitation to act stays light.",
+        "section": "colors"
+      },
+      {
+        "name": "The Owned Band Rule",
+        "body": "Sage tint owns a whole surface (a band, a tile, a card, a photo ground) or nothing. It is never a thin stripe, underline or border accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Large-Only Soft Ink Rule",
+        "body": "Soft Ink (3.5:1 on crudo) and Faded Sage (3.1:1 on linen) appear only at title size (24px) and above, or as non-text marks. Body and label text use Muted Ink or darker.",
+        "section": "colors"
+      },
+      {
+        "name": "The Muted Second Line Rule",
+        "body": "Headings that run long split into an ink first line and a muted continuation (Soft Ink on crudo or linen, Sage Olive on the sage band). The continuation is a block on its own line, never an inline color change mid-sentence.",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Speaks Rule",
+        "body": "Every h1 to h3 is Newsreader at weight 400 with -0.015em tracking and balanced wrapping. No bold serif, no uppercase, no letter-spaced labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Float-Only Rule",
+        "body": "A shadow means \"this card sits on a photograph.\" Cards on a flat band stay flat and use a hairline or tint instead.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** make every action a fully round pill at least 44px tall, dark Olive Door for booking and light hairline for WhatsApp, side by side.",
+      "**Do** let sage tint own a whole band, tile or card (The Owned Band Rule).",
+      "**Do** split long headings into an ink line and a muted continuation line.",
+      "**Do** frame every photo or placeholder at 28px on a tint ground, and reserve the Float shadow for cards that overlap it.",
+      "**Do** structure with 1px Hairline and Strong Hairline rules before reaching for fills or shadows.",
+      "**Do** keep body copy at 18px Figtree in Muted Ink or darker; use Soft Ink only at 24px and above.",
+      "**Do** use Lucide line icons at 1.5 stroke, 20px, in Sage Olive.",
+      "**Do** run every movement on the soft ease and remove it under reduced motion."
+    ],
+    "donts": [
+      "**Don't** use hospital blue, stethoscope imagery, stat badges or stock smiles; the world is a person, not a clinic.",
+      "**Don't** add eyebrows or kicker labels above headings, uppercase tracked text, or bold serif.",
+      "**Don't** use glass, blur, gradients or hard offset shadows.",
+      "**Don't** put a shadow on a card that sits on a flat band.",
+      "**Don't** use the Olive Door fill for anything that is not a call to act.",
+      "**Don't** introduce square corners on cards, photos or buttons."
+    ]
+  }
+}
