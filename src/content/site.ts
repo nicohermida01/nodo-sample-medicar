@@ -314,7 +314,7 @@ export const site: SiteContent = {
       hoursSuffix: 'h',
     },
     about: {
-      photoAlt: 'La Dra. Julieta Ferrari en su escritorio de consulta (imagen de ejemplo)',
+      photoAlt: 'La Dra. Julieta Ferrari conversando con una paciente en su escritorio de consulta (imagen de ejemplo)',
       quote: 'Prefiero que salgas de la consulta entendiendo qué tenés y qué hacer.',
       facts: [
         'Consultas para adultos, chicos y adolescentes',
