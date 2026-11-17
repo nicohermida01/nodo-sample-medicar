@@ -7,8 +7,8 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace with the real production domain before deploying.
-  site: 'https://dra-ejemplo.com',
+  // Production URL: used by the sitemap, canonical and Open Graph tags.
+  site: 'https://nodo-sample-medicar.vercel.app',
   output: 'static',
 
   vite: {
